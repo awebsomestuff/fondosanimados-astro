@@ -23,6 +23,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link rel="canonical" href={canonicalURL} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+  <!-- DNS Prefetch para recursos externos -->
+  <link rel="preconnect" href="https://fondosanimados-astro.pages.dev" crossorigin />
+
   <!-- hreflang -->
   <link rel="alternate" hreflang="es" href={canonicalURL} />
   {hreflangEn && <link rel="alternate" hreflang="en" href={hreflangEn} />}

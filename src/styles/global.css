@@ -787,10 +787,12 @@ body::-webkit-scrollbar-track,
     padding: 15px 25px;
     border-bottom: 1px solid #333;
     font-size: 1.1rem;
+    color: #5cb8ff;
   }
 
   .main-navigation .main-nav li a:hover {
     background: #333;
+    color: #ffffff;
   }
 
   /* Overlay oscuro cuando el menú está abierto */

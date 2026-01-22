@@ -1,0 +1,6 @@
+# Robots.txt para fondosanimados.com
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://fondosanimados.com/sitemap-index.xml

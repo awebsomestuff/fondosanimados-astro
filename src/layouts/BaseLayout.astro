@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title: string;
   description?: string;
@@ -28,17 +30,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <!-- Preconnect -->
   <link rel="preconnect" href="https://mega.nz" />
 
-  <!-- Estilos globales -->
-  <style is:global>
-    @import '../styles/global.css';
-  </style>
+  <!-- Preload logo para mejorar LCP -->
+  <link rel="preload" href="/uploads/2023/03/logo-fondo.png" as="image" />
 </head>
 <body>
   <header class="site-header">
     <div class="inside-header grid-container">
       <div class="site-branding">
         <a href="/">
-          <img src="/uploads/2023/03/logo-fondo.png" alt="Fondos Animados" class="site-logo" />
+          <img src="/uploads/2023/03/logo-fondo.png" alt="Fondos Animados" class="site-logo" width="200" height="60" fetchpriority="high" />
         </a>
       </div>
       <button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false" aria-label="Menú">

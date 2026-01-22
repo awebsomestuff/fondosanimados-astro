@@ -15,6 +15,7 @@ html {
 
 h1 {
   text-align: center;
+  font-size: 2rem;
 }
 
 body {
@@ -471,7 +472,7 @@ img {
   justify-content: center;
   padding: 0.45rem 0.9rem;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: #0056b3;
   color: #ffffff !important;
   text-decoration: none;
   font-size: 0.9rem;
@@ -482,8 +483,8 @@ img {
 
 .wv-downloads a:hover,
 .wv-downloads a:focus {
-  background-color: #0069d9;
-  border-color: #0056b3;
+  background-color: #004494;
+  border-color: #003d82;
 }
 
 .wv-downloads a:visited {

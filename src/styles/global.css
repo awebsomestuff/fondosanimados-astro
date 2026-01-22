@@ -34,7 +34,7 @@ h2 {
 }
 
 a {
-  color: #088cfc;
+  color: #0066cc;
   text-decoration: none;
 }
 
@@ -99,7 +99,7 @@ img {
 }
 
 .main-navigation a {
-  color: #088cfc;
+  color: #0066cc;
   font-weight: 500;
   padding: 10px 15px;
   display: block;
@@ -529,7 +529,7 @@ body::-webkit-scrollbar,
 body::-webkit-scrollbar-thumb,
 .gallery::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: #088cfc;
+  background-color: #0066cc;
 }
 
 body::-webkit-scrollbar-track,
@@ -689,7 +689,7 @@ body::-webkit-scrollbar-track,
   display: block;
   width: 28px;
   height: 3px;
-  background: #088cfc;
+  background: #0066cc;
   position: relative;
   transition: background 0.2s ease;
 }
@@ -700,7 +700,7 @@ body::-webkit-scrollbar-track,
   position: absolute;
   width: 28px;
   height: 3px;
-  background: #088cfc;
+  background: #0066cc;
   left: 0;
   transition: transform 0.3s ease;
 }
@@ -743,7 +743,7 @@ body::-webkit-scrollbar-track,
 }
 
 .main-navigation .main-nav li a {
-  color: #088cfc;
+  color: #0066cc;
   font-weight: 500;
   padding: 10px 15px;
   display: block;
@@ -838,10 +838,11 @@ body::-webkit-scrollbar-track,
   min-width: 200px;
 }
 
-.footer-widget h4 {
-  color: #088cfc;
+.footer-widget-title {
+  color: #5eb3ff;
   margin-bottom: 15px;
   font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .footer-widget ul {
@@ -860,7 +861,7 @@ body::-webkit-scrollbar-track,
 }
 
 .footer-widget ul li a:hover {
-  color: #088cfc;
+  color: #0066cc;
 }
 
 .site-info {
@@ -904,7 +905,7 @@ body::-webkit-scrollbar-track,
 }
 
 .elemento-index h4 a:hover {
-  color: #088cfc;
+  color: #0066cc;
 }
 
 /* Alineación de imágenes */
@@ -948,7 +949,7 @@ body::-webkit-scrollbar-track,
 .su-button {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #088cfc;
+  background-color: #0066cc;
   color: #fff !important;
   text-decoration: none;
   border-radius: 5px;
@@ -960,7 +961,7 @@ body::-webkit-scrollbar-track,
 }
 
 .su-button:hover {
-  background-color: #0069d9;
+  background-color: #004d99;
   color: #fff !important;
   transform: translateY(-1px);
 }

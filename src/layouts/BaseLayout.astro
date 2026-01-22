@@ -27,8 +27,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link rel="alternate" hreflang="es" href={canonicalURL} />
   {hreflangEn && <link rel="alternate" hreflang="en" href={hreflangEn} />}
 
-  <!-- Preconnect -->
-  <link rel="preconnect" href="https://mega.nz" />
 
   <!-- Preload logo para mejorar LCP -->
   <link rel="preload" href="/uploads/2023/03/logo-fondo.png" as="image" />

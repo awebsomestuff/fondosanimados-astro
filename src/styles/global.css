@@ -869,7 +869,7 @@ body::-webkit-scrollbar-track,
   margin: 0 auto;
   text-align: center;
   padding-top: 20px;
-  color: #888;
+  color: #aaa;
 }
 
 
@@ -894,17 +894,17 @@ body::-webkit-scrollbar-track,
   border-radius: 8px;
 }
 
-.elemento-index h4 {
+.categoria-titulo {
   margin: 10px 0;
   font-size: 0.9rem;
 }
 
-.elemento-index h4 a {
+.categoria-titulo a {
   color: #333;
   text-decoration: none;
 }
 
-.elemento-index h4 a:hover {
+.categoria-titulo a:hover {
   color: #0066cc;
 }
 

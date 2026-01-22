@@ -1,0 +1,1088 @@
+/* ============================================
+   FONDOSANIMADOS.COM - ESTILOS GLOBALES
+   Migrado desde WordPress/GeneratePress
+   ============================================ */
+
+/* Reset básico */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* GeneratePress Site CSS */
+html {
+  background: #ddd;
+}
+
+h1 {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+/* Márgenes de párrafos y títulos (igual que WordPress original) */
+p {
+  margin: 0 0 22.5px;
+}
+
+h2 {
+  margin: 0 0 20px;
+}
+
+a {
+  color: #088cfc;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0069d9;
+}
+
+/* Regla global de imágenes (igual que WordPress original) */
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Contenedor principal */
+.site-content {
+  max-width: 1135px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.entry-content {
+  max-width: 1075px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Limpiar floats del contenido */
+.entry-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Asegurar que el main tenga overflow para contener floats */
+.site-content {
+  overflow: hidden;
+}
+
+/* ============================================
+   NAVEGACIÓN
+   ============================================ */
+.site-header {
+  background: #f0f0f0;
+  padding: 0;
+  width: 100%;
+}
+
+.main-navigation {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.main-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main-navigation a {
+  color: #088cfc;
+  font-weight: 500;
+  padding: 10px 15px;
+  display: block;
+}
+
+.main-navigation a:hover {
+  color: #0056b3;
+}
+
+@media (min-width: 769px) {
+  .main-navigation .nav-button a {
+    border-width: 3px;
+    border-style: solid;
+    border-color: inherit;
+    border-radius: 5px;
+    line-height: 3em;
+  }
+}
+
+/* ============================================
+   GRIDS DE CATEGORÍAS
+   ============================================ */
+.margen_anuncios {
+  margin: 30px 0 0 0;
+}
+
+.anuncio-anime {
+  margin: 0px 0 0 0;
+}
+
+.su-box-content {
+  background-color: #171717;
+}
+
+.contenedor-de-boton {
+  position: relative;
+  float: left;
+  width: 50%;
+  margin-right: 0px;
+  padding: 0 20px 0 20px;
+}
+
+.columnas-shorts-padre {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 1470px;
+}
+
+.columnas-shorts-hijo {
+  position: relative;
+  float: left;
+  width: 33.3%;
+  padding: 15px;
+  height: 730px;
+}
+
+.contenedor-de-boton-wp {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin-right: 2px;
+  padding: 0 30px 0 30px;
+}
+
+.despues-de-boton {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.elemento-index {
+  position: relative;
+  float: left;
+  width: 20%;
+  padding: 5px 10px 0 0;
+  min-height: 200px;
+}
+
+.elemento-index:hover {
+  transform: scale(1.03);
+}
+
+.caja-destacados {
+  position: relative;
+  float: left;
+  padding: 20px 0 0 0;
+}
+
+.elemento-categorias {
+  position: relative;
+  float: left;
+  width: 33%;
+  padding: 0 10px 0 0;
+  height: 250px;
+  min-height: 250px;
+  opacity: 0.9;
+}
+
+.elemento-categorias img {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.elemento-categorias:hover {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+.elemento-categorias-b {
+  position: relative;
+  float: left;
+  width: 20%;
+  padding: 0 10px 0 0;
+  min-height: 210px;
+  opacity: 0.9;
+}
+
+.elemento-categorias-b:hover {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+.contenedor-categorias-b {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.elemento-index-botones {
+  position: relative;
+  float: left;
+  width: 19%;
+  margin: 0 5px 0px 5px;
+}
+
+.elemento-index-anuncio {
+  position: relative;
+  float: left;
+  width: 75%;
+  margin-left: 30px;
+}
+
+.caja-index-botones {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+/* ============================================
+   PERSONAJES / GALERÍAS
+   ============================================ */
+
+/* Contenedor con CSS Grid responsive inteligente */
+/* Base: comportamiento móvil uniforme para todas las galerías (3+ columnas) */
+.personajes-anime {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 20px;
+  justify-items: center;
+}
+
+/* Desktop: columnas específicas según el tipo de personaje */
+@media (min-width: 900px) {
+  /* Para personaje6: ~6 columnas en desktop */
+  .personajes-anime:has(.personaje6) {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  /* Para personaje7: ~7 columnas en desktop */
+  .personajes-anime:has(.personaje7) {
+    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  }
+
+  /* Para personaje8: ~8 columnas en desktop */
+  .personajes-anime:has(.personaje8) {
+    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+  }
+
+  /* Para personaje-index: ~9 columnas en desktop */
+  .personajes-anime:has(.personaje-index) {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+}
+
+/* Clearfix para contenedores con floats */
+.personajes-anime::after,
+.contenedor-categorias-b::after,
+.caja-destacados::after,
+.caja-index-botones::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Estilos base para todos los personajes */
+.personaje,
+.personaje6,
+.personaje7,
+.personaje8,
+.personaje-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 15px;
+  opacity: 0.85;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  width: 100%;
+  max-width: 180px;
+}
+
+/* Tamaños de imagen específicos para desktop */
+.personaje img {
+  width: 105px;
+  height: auto;
+}
+
+.personaje-index img {
+  width: 110px;
+  height: auto;
+}
+
+.personaje8 img {
+  width: 125px;
+  height: auto;
+}
+
+.personaje7 img {
+  width: 145px;
+  height: auto;
+}
+
+.personaje6 img {
+  width: 170px;
+  height: auto;
+}
+
+.personaje:hover,
+.personaje6:hover,
+.personaje7:hover,
+.personaje8:hover,
+.personaje-index:hover {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+.personaje6 span {
+  height: 200px;
+}
+
+.video-animado {
+  width: 1000px;
+  height: 563px;
+}
+
+.sproutvideo-player {
+  width: 500px;
+  height: 200px;
+}
+
+/* ============================================
+   REPRODUCTOR DE VÍDEO (wv-*)
+   ============================================ */
+.wv-media {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.wv-preview,
+.wv-video-container,
+.wv-video-container iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wv-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Botón Play - Círculo blanco tipo YouTube */
+.wv-play-button {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+/* Triángulo azul */
+.wv-play-button::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 22px 0 22px 36px;
+  border-color: transparent transparent transparent #007bff;
+  margin-left: 5px;
+}
+
+.wv-play-button:hover,
+.wv-play-button:focus {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.55);
+}
+
+.wv-play-button:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+/* Estado inicial: preview visible, vídeo oculto */
+.wv-video-container {
+  display: none;
+}
+
+/* Estado reproduciendo */
+.wv-wallpaper.wv-is-playing .wv-preview {
+  display: none;
+}
+
+.wv-wallpaper.wv-is-playing .wv-video-container {
+  display: block;
+}
+
+/* ============================================
+   BOTONES DE DESCARGA
+   ============================================ */
+.wv-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.wv-downloads a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #ffffff !important;
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.wv-downloads a:hover,
+.wv-downloads a:focus {
+  background-color: #0069d9;
+  border-color: #0056b3;
+}
+
+.wv-downloads a:visited {
+  color: #ffffff !important;
+}
+
+/* ============================================
+   GALERÍA HORIZONTAL (scroll)
+   ============================================ */
+.gallery {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* ============================================
+   SCROLLBAR PERSONALIZADO
+   ============================================ */
+body::-webkit-scrollbar,
+.gallery::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb,
+.gallery::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #088cfc;
+}
+
+body::-webkit-scrollbar-track,
+.gallery::-webkit-scrollbar-track {
+  border-radius: 15px;
+  background-color: #F5F5F5;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1250px) {
+  .elemento-index {
+    width: 25%;
+    min-height: 220px;
+  }
+
+  .elemento-index-botones {
+    position: relative;
+    float: left;
+    width: 48%;
+    margin: 0 5px 0 5px;
+  }
+
+  .elemento-index-anuncio {
+    width: 50%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .columnas-shorts-hijo {
+    width: 50%;
+  }
+
+  .elemento-index {
+    width: 33%;
+    min-height: 220px;
+  }
+
+  .elemento-index-anuncio {
+    width: 100%;
+  }
+
+  .elemento-categorias {
+    width: 50%;
+    height: auto;
+  }
+
+  .elemento-categorias-b {
+    width: 50%;
+    min-height: 290px;
+  }
+}
+
+@media (max-width: 900px) {
+  .elemento-index {
+    position: relative;
+    float: left;
+    width: 50%;
+    padding: 0 10px 0 0;
+    min-height: 210px;
+  }
+
+  .elemento-index-botones {
+    position: relative;
+    float: left;
+    width: 95%;
+    margin: 0 10px 0 10px;
+  }
+
+  .elemento-categorias {
+    width: 100%;
+    height: auto;
+  }
+
+  .elemento-categorias-b {
+    min-height: 220px;
+  }
+
+  /* En responsive, las imágenes se adaptan al contenedor del grid */
+  .personaje img,
+  .personaje6 img,
+  .personaje7 img,
+  .personaje8 img,
+  .personaje-index img {
+    width: 100%;
+    max-width: 110px;
+    height: auto;
+  }
+
+  .personaje,
+  .personaje6,
+  .personaje7,
+  .personaje8,
+  .personaje-index {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-item {
+    width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 1080px) {
+  .contenedor-de-boton {
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 0 30px 0 30px;
+  }
+}
+
+/* ============================================
+   CLEARFIX
+   ============================================ */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ============================================
+   HEADER CON LOGO
+   ============================================ */
+.inside-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  max-width: 1145px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.site-branding {
+  flex-shrink: 0;
+}
+
+.site-logo {
+  max-height: 60px;
+  width: auto;
+}
+
+/* Botón hamburguesa - oculto en desktop */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.hamburger-icon {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #088cfc;
+  position: relative;
+  transition: background 0.2s ease;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 3px;
+  background: #088cfc;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.hamburger-icon::before {
+  top: -8px;
+}
+
+.hamburger-icon::after {
+  top: 8px;
+}
+
+/* Animación del botón cuando está activo */
+.menu-toggle.active .hamburger-icon {
+  background: transparent;
+}
+
+.menu-toggle.active .hamburger-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.menu-toggle.active .hamburger-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.main-navigation {
+  flex-grow: 1;
+}
+
+.main-navigation .main-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.main-navigation .main-nav li a {
+  color: #088cfc;
+  font-weight: 500;
+  padding: 10px 15px;
+  display: block;
+  text-decoration: none;
+}
+
+.main-navigation .main-nav li a:hover {
+  color: #0056b3;
+}
+
+/* Responsive: menú hamburguesa en pantallas pequeñas */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-navigation {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: #1a1a1a;
+    transition: right 0.3s ease;
+    z-index: 1000;
+    padding-top: 70px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .main-navigation.active {
+    right: 0;
+  }
+
+  .main-navigation .main-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .main-navigation .main-nav li a {
+    padding: 15px 25px;
+    border-bottom: 1px solid #333;
+    font-size: 1.1rem;
+  }
+
+  .main-navigation .main-nav li a:hover {
+    background: #333;
+  }
+
+  /* Overlay oscuro cuando el menú está abierto */
+  .menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  .menu-overlay.active {
+    display: block;
+  }
+}
+
+/* ============================================
+   FOOTER MEJORADO
+   ============================================ */
+.site-footer {
+  background: #222;
+  color: #fff;
+  padding: 40px 20px 20px;
+  margin-top: 40px;
+  clear: both;
+  width: 100%;
+}
+
+.footer-widgets {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #444;
+}
+
+.footer-widget {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-widget h4 {
+  color: #088cfc;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.footer-widget ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-widget ul li {
+  margin-bottom: 8px;
+}
+
+.footer-widget ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-widget ul li a:hover {
+  color: #088cfc;
+}
+
+.site-info {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px;
+  color: #888;
+}
+
+
+@media (max-width: 768px) {
+  .footer-widgets {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+/* ============================================
+   ESTILOS ADICIONALES PARA GALERÍAS INDEX
+   ============================================ */
+.caja-destacados {
+  width: 100%;
+  overflow: hidden;
+}
+
+.elemento-index img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.elemento-index h4 {
+  margin: 10px 0;
+  font-size: 0.9rem;
+}
+
+.elemento-index h4 a {
+  color: #333;
+  text-decoration: none;
+}
+
+.elemento-index h4 a:hover {
+  color: #088cfc;
+}
+
+/* Alineación de imágenes */
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alignnone {
+  display: inline-block;
+}
+
+/* Estilos para personajes como enlaces (son tags <a>) */
+.personaje,
+.personaje6,
+.personaje7,
+.personaje8,
+.personaje-index {
+  color: #333;
+  text-decoration: none;
+}
+
+
+.elemento-categorias-b {
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.elemento-categorias-b img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* ============================================
+   BOTONES SU-BUTTON (convertidos de WordPress)
+   ============================================ */
+.su-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #088cfc;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin: 5px 0;
+}
+
+.su-button:hover {
+  background-color: #0069d9;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.su-button:active {
+  transform: translateY(0);
+}
+
+/* Contenedor de botones - centrado y en línea */
+.caja-index-botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  float: none;
+  margin-bottom: 30px;
+}
+
+.caja-index-botones .elemento-index-botones {
+  float: none;
+  width: auto;
+  margin: 0;
+}
+
+.elemento-index-botones .su-button {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Contenedor para botones de descarga - centrado */
+.su-buttons-wrapper {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.su-buttons-wrapper .su-button {
+  margin: 5px;
+}
+
+/* ============================================
+   MEGA LAZY LOAD - Placeholder con botón play
+   ============================================ */
+.mega-lazy {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.mega-lazy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+}
+
+.mega-play-btn {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mega-play-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.mega-play-icon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 15px 0 15px 26px;
+  border-color: transparent transparent transparent #007bff;
+  margin-left: 5px;
+}
+
+/* Estado cargando */
+.mega-lazy.loading .mega-play-btn {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.mega-lazy.loading::after {
+  content: "Cargando...";
+  position: absolute;
+  bottom: 20px;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+}
+
+/* Iframe cargado */
+.mega-lazy iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+.mega-lazy.loaded .mega-play-btn {
+  display: none;
+}
+
+.mega-lazy.loaded::before,
+.mega-lazy.loaded::after {
+  display: none;
+}

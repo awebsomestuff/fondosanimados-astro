@@ -1,0 +1,205 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  hreflangEn?: string;
+}
+
+const { title, description = "Fondos de Pantalla Animados y en Movimiento para PC", hreflangEn } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+
+  <title>{title}</title>
+
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="es" href={canonicalURL} />
+  {hreflangEn && <link rel="alternate" hreflang="en" href={hreflangEn} />}
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://mega.nz" />
+
+  <!-- Estilos globales -->
+  <style is:global>
+    @import '../styles/global.css';
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inside-header grid-container">
+      <div class="site-branding">
+        <a href="/">
+          <img src="/uploads/2023/03/logo-fondo.png" alt="Fondos Animados" class="site-logo" />
+        </a>
+      </div>
+      <button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false" aria-label="Menú">
+        <span class="hamburger-icon"></span>
+      </button>
+      <nav id="site-navigation" class="main-navigation">
+        <ul class="main-nav">
+          <li><a href="/anime/">Anime</a></li>
+          <li><a href="/series-y-peliculas/">Series y Películas</a></li>
+          <li><a href="/videojuegos/">Videojuegos</a></li>
+          <li><a href="/coches/">Coches</a></li>
+          <li><a href="/superheroes/">Superhéroes</a></li>
+          <li><a href="/disney/">Disney</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="menu-overlay"></div>
+
+  <main class="site-content">
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-widgets">
+      <div class="footer-widget">
+        <h4>Categorías Populares</h4>
+        <ul>
+          <li><a href="/anime/">Anime</a></li>
+          <li><a href="/dragon-ball/">Dragon Ball</a></li>
+          <li><a href="/naruto/">Naruto</a></li>
+          <li><a href="/one-piece/">One Piece</a></li>
+          <li><a href="/videojuegos/">Videojuegos</a></li>
+        </ul>
+      </div>
+      <div class="footer-widget">
+        <h4>Tutoriales</h4>
+        <ul>
+          <li><a href="/como-poner-en-android/">Cómo poner en Android</a></li>
+          <li><a href="/como-poner-en-windows/">Cómo poner en Windows</a></li>
+          <li><a href="/wallpaper-engine/">Wallpaper Engine</a></li>
+          <li><a href="/lively-wallpaper/">Lively Wallpaper</a></li>
+        </ul>
+      </div>
+      <div class="footer-widget">
+        <h4>Más Categorías</h4>
+        <ul>
+          <li><a href="/coches/">Coches</a></li>
+          <li><a href="/paisajes/">Paisajes</a></li>
+          <li><a href="/superheroes/">Superhéroes</a></li>
+          <li><a href="/disney/">Disney</a></li>
+          <li><a href="/aesthetic/">Aesthetic</a></li>
+        </ul>
+      </div>
+      <div class="footer-widget">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/politica-de-privacidad/">Política de Privacidad</a></li>
+          <li><a href="/terminos-de-servicio/">Términos de Servicio</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-info">
+      <p>&copy; {new Date().getFullYear()} Fondos Animados - Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <!-- Script del menú hamburguesa -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-navigation');
+    const menuOverlay = document.querySelector('.menu-overlay');
+
+    function toggleMenu() {
+      menuToggle?.classList.toggle('active');
+      mainNav?.classList.toggle('active');
+      menuOverlay?.classList.toggle('active');
+
+      const isExpanded = menuToggle?.getAttribute('aria-expanded') === 'true';
+      menuToggle?.setAttribute('aria-expanded', String(!isExpanded));
+
+      // Prevenir scroll del body cuando el menú está abierto
+      document.body.style.overflow = mainNav?.classList.contains('active') ? 'hidden' : '';
+    }
+
+    menuToggle?.addEventListener('click', toggleMenu);
+    menuOverlay?.addEventListener('click', toggleMenu);
+
+    // Cerrar menú al hacer click en un enlace
+    mainNav?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (mainNav.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+  </script>
+
+  <!-- Script del reproductor de vídeo -->
+  <script>
+    document.addEventListener('click', function (event) {
+      const playButton = (event.target as Element).closest('.wv-play-button');
+      if (!playButton) return;
+
+      const block = playButton.closest('.wv-wallpaper');
+      if (!block) return;
+
+      const videoSrc = block.getAttribute('data-video-src');
+      if (!videoSrc) return;
+
+      const videoContainer = block.querySelector('.wv-video-container');
+      if (!videoContainer) return;
+
+      const alreadyLoaded = videoContainer.getAttribute('data-loaded') === 'true';
+
+      if (!alreadyLoaded) {
+        const iframe = document.createElement('iframe');
+
+        // Añadimos el sufijo de autoplay de MEGA si no está ya
+        const autoplaySrc = videoSrc.endsWith('!1a') ? videoSrc : videoSrc + '!1a';
+        iframe.src = autoplaySrc;
+
+        iframe.loading = 'lazy';
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allowfullscreen', 'true');
+        iframe.setAttribute('allow', 'autoplay');
+
+        videoContainer.innerHTML = '';
+        videoContainer.appendChild(iframe);
+        videoContainer.setAttribute('data-loaded', 'true');
+      }
+
+      block.classList.add('wv-is-playing');
+    });
+
+    // Lazy load para iframes de MEGA
+    document.addEventListener('click', function (event) {
+      const container = (event.target as Element).closest('.mega-lazy');
+      if (!container) return;
+      if (container.classList.contains('loaded')) return;
+
+      const videoSrc = container.getAttribute('data-src');
+      if (!videoSrc) return;
+
+      container.classList.add('loading');
+
+      const iframe = document.createElement('iframe');
+      // Añadimos el sufijo de autoplay de MEGA si no está ya
+      const autoplaySrc = videoSrc.endsWith('!1a') ? videoSrc : videoSrc + '!1a';
+      iframe.src = autoplaySrc;
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allowfullscreen', 'true');
+      iframe.setAttribute('allow', 'autoplay');
+
+      iframe.onload = () => {
+        container.classList.remove('loading');
+        container.classList.add('loaded');
+      };
+
+      container.appendChild(iframe);
+    });
+  </script>
+</body>
+</html>

@@ -350,6 +350,15 @@ Galería de categorías secundarias. **Mismo patrón que elemento-index.**
 | /chainsaw-man/ | personaje7 + preview | Srcset inverso para personaje7. Fix power.webp compartida. |
 | /anime/ | personaje8 + elemento-categorias + elemento-categorias-b + preview | **117 imágenes**, ~2.9MB ahorrados. Nuevos patrones establecidos. |
 | /dragon-ball/ | personaje + preview | Srcset inverso (105px desktop, 200px móvil). |
+| /videojuegos/ | elemento-categorias | 42 imágenes corregidas con srcset. |
+| /series-y-peliculas/ | elemento-categorias | 32 imágenes corregidas con srcset. |
+| /superheroes/ | elemento-categorias + elemento-categorias-b | Corregidas ambas galerías. |
+| /disney/ | elemento-categorias + elemento-categorias-b | 18 + 8 imágenes corregidas. |
+| /naruto/ | personaje6 | Ya correcta (sin srcset, 150px). |
+| /kimetsu-no-yaiba/ | personaje6 | Ya correcta (sin srcset, 150px). |
+| /jujutsu-kaisen/ | personaje6 | Ya correcta (sin srcset, 150px). |
+| /coches/ | personaje6 | Ya correcta (sin srcset, 150px). |
+| /stranger-things/ | personaje6 | Ya correcta (sin srcset, 150px). |
 
 ### ⏳ PENDIENTES
 | Página | Tipo galería | Prioridad |

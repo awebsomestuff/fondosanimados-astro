@@ -673,6 +673,7 @@ body::-webkit-scrollbar-track,
 .site-logo {
   max-height: 60px;
   width: auto;
+  aspect-ratio: 5 / 1; /* 400x80 = 5:1 - previene CLS */
 }
 
 /* Botón hamburguesa - oculto en desktop */

@@ -27,7 +27,7 @@ Cada tipo de galería tiene dimensiones CSS diferentes:
 | **personaje7** | /chainsaw-man/ | ~120px | ~100px | NO |
 | **personaje8** | /anime/ | ~120px | ~100px | NO |
 | **personaje-index** | /principal/ | ~150px | ~120px | NO |
-| **personaje** | /dragon-ball/ | ~200px | ~150px | Evaluar caso a caso |
+| **personaje** | /dragon-ball/ | 105px | 200px | SÍ (srcset inverso) |
 | **preview** | Todos | ~1000px | ~651px | SÍ (obligatorio) |
 
 **Nota importante:** Las imágenes de galería actuales ya son pequeñas (~150px de ancho).
@@ -260,6 +260,32 @@ Galería de personajes más buscados. **Caso especial: PC necesita MENOS tamaño
 
 **Script de referencia:** `scripts/fix-anime.js`
 
+### personaje (Galería de /dragon-ball/)
+
+Galería de personajes principales. **Caso especial: PC necesita MENOS tamaño que móvil.**
+
+| Dispositivo | Tamaño mostrado | Imagen necesaria |
+|-------------|-----------------|------------------|
+| PC | 105x187 | 105px ancho |
+| Móvil | 200x356 | 200px ancho (actual) |
+
+**Solución: srcset inverso**
+- Crear versión `-desktop.webp` de 105px
+- Mantener original para móvil (200px)
+- Comprimir ambas con quality 65
+
+```html
+<img
+  src="/uploads/2023/07/goku.webp"
+  srcset="/uploads/2023/07/goku-desktop.webp 105w,
+          /uploads/2023/07/goku.webp 200w"
+  sizes="(max-width: 900px) 200px, 105px"
+  loading="lazy"
+/>
+```
+
+**Script de referencia:** Patrón similar a `scripts/fix-chainsaw-man.js` (personaje7)
+
 ### elemento-categorias (Galería de /anime/ - Categorías Populares)
 
 Galería de categorías principales con imágenes grandes. **Caso especial: PC necesita MENOS tamaño que móvil.**
@@ -323,19 +349,16 @@ Galería de categorías secundarias. **Mismo patrón que elemento-index.**
 | / (index) | elemento-index + personaje-index + preview | Srcset inverso para elemento-index. |
 | /chainsaw-man/ | personaje7 + preview | Srcset inverso para personaje7. Fix power.webp compartida. |
 | /anime/ | personaje8 + elemento-categorias + elemento-categorias-b + preview | **117 imágenes**, ~2.9MB ahorrados. Nuevos patrones establecidos. |
+| /dragon-ball/ | personaje + preview | Srcset inverso (105px desktop, 200px móvil). |
 
 ### ⏳ PENDIENTES
 | Página | Tipo galería | Prioridad |
 |--------|--------------|-----------|
-| /dragon-ball/ | personaje | Alta - Probar nuevo tipo de galería |
-| /abstracto/ | solo preview | Media - Solo preview, más simple |
-| ~640 páginas restantes | Varios | Baja - Aplicar en masa cuando patrones confirmados |
+| ~640 páginas restantes | Varios | Alta - Aplicar correcciones masivas por tipo |
 
 ### 🎯 PRÓXIMA SESIÓN
-1. **Verificar PageSpeed** de /anime/ para confirmar optimizaciones
-2. **Optimizar /dragon-ball/** - nuevo tipo de galería (personaje)
-3. Una vez confirmados todos los patrones, crear script masivo para las ~640 páginas restantes
-4. **Asociar dominio** a Cloudflare Pages (pendiente hasta terminar optimizaciones)
+1. **Aplicar correcciones masivas** por tipo de imagen en todas las URLs
+2. **Asociar dominio** a Cloudflare Pages (pendiente hasta terminar optimizaciones)
 
 ### Scripts disponibles
 - `fix-attack-on-titan-final.js` - Modelo para personaje6 + preview
@@ -343,6 +366,20 @@ Galería de categorías secundarias. **Mismo patrón que elemento-index.**
 - `fix-index-gallery-v2.js` - Modelo para elemento-index (srcset inverso)
 - `fix-personaje-index.js` - Modelo para personaje-index (sin srcset)
 - `fix-anime.js` - **Modelo completo** para personaje8 + elemento-categorias + elemento-categorias-b + preview
+
+### Resumen de Patrones por Tipo de Galería
+
+| Tipo | PC | Móvil | Patrón | Sufijo |
+|------|-----|-------|--------|--------|
+| **preview** | 1000px | 651px | Estándar | `-mobile.webp` |
+| **personaje** | 105px | 200px | Inverso | `-desktop.webp` |
+| **personaje6** | ~120px | ~100px | Sin srcset | - |
+| **personaje7** | 145px | 200px | Inverso | `-desktop.webp` |
+| **personaje8** | 125px | 200px | Inverso | `-desktop.webp` |
+| **personaje-index** | 110px | 110px | Sin srcset | - |
+| **elemento-index** | 205px | 310px | Inverso | `-desktop.webp` |
+| **elemento-categorias** | 356px | 437px | Inverso | `-desktop.webp` |
+| **elemento-categorias-b** | 205px | 310px | Inverso | `-desktop.webp` |
 
 ## Páginas de Prueba (Referencia Histórica)
 

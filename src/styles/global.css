@@ -289,7 +289,7 @@ img {
 
   /* Para personaje (sin número): ~9 columnas en desktop */
   .personajes-anime:has(.personaje) {
-    grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
   }
 
   /* Para personaje-index: ~9 columnas en desktop */

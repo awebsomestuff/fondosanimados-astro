@@ -188,8 +188,8 @@ img {
   position: relative;
   float: left;
   width: 20%;
-  padding: 5px 10px 0 0;
-  min-height: 200px;
+  padding: 0 8px 8px 0;
+  min-height: auto;
 }
 
 .elemento-index:hover {
@@ -199,7 +199,7 @@ img {
 .caja-destacados {
   position: relative;
   float: left;
-  padding: 20px 0 0 0;
+  padding: 10px 0 0 0;
 }
 
 .elemento-categorias {
@@ -561,7 +561,7 @@ body::-webkit-scrollbar-track,
 @media (max-width: 1250px) {
   .elemento-index {
     width: 25%;
-    min-height: 220px;
+    min-height: auto;
   }
 
   .elemento-index-botones {
@@ -583,7 +583,7 @@ body::-webkit-scrollbar-track,
 
   .elemento-index {
     width: 33%;
-    min-height: 220px;
+    min-height: auto;
   }
 
   .elemento-index-anuncio {
@@ -606,8 +606,8 @@ body::-webkit-scrollbar-track,
     position: relative;
     float: left;
     width: 50%;
-    padding: 0 10px 0 0;
-    min-height: 210px;
+    padding: 0 6px 6px 0;
+    min-height: auto;
   }
 
   .elemento-index-botones {
@@ -917,7 +917,7 @@ body::-webkit-scrollbar-track,
 }
 
 .categoria-titulo {
-  margin: 10px 0;
+  margin: 5px 0 0 0;
   font-size: 0.9rem;
 }
 

@@ -3,6 +3,17 @@
    Migrado desde WordPress/GeneratePress
    ============================================ */
 
+/* ============================================
+   ADSENSE - Estilos para evitar CLS
+   ============================================ */
+
+/* Contenedor principal del ad header - reserva espacio fijo */
+#ad-header-desktop,
+#ad-header-mobile {
+  /* Usar ID para que AdSense no elimine min-height */
+  contain: layout style;
+}
+
 /* Reset básico */
 *, *::before, *::after {
   box-sizing: border-box;

@@ -1,0 +1,72 @@
+---
+// AdSenseHeader.astro
+// Banner de cabecera optimizado:
+// - Desktop: Responsive (puede mostrar 970x250, 728x90, etc.)
+// - Mobile: Fijo 320x100 (Large Mobile Banner)
+---
+
+<div class="ad-header-container">
+  <!-- Desktop: Responsive (970x250, 728x90, etc.) -->
+  <div class="ad-header-desktop" id="ad-header-desktop">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-9609544329602409"
+         data-ad-slot="2203484639"
+         data-ad-format="horizontal"
+         data-full-width-responsive="false"></ins>
+  </div>
+
+  <!-- Mobile: Fijo 320x100 -->
+  <div class="ad-header-mobile" id="ad-header-mobile">
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:320px;height:100px"
+         data-ad-client="ca-pub-9609544329602409"
+         data-ad-slot="7370899456"></ins>
+  </div>
+</div>
+
+<script>
+  // Inicializar los anuncios cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof adsbygoogle !== 'undefined') {
+      // Push para el anuncio visible (desktop o mobile según CSS)
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    }
+  });
+</script>
+
+<style>
+  .ad-header-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: #f5f5f5;
+  }
+
+  /* Desktop: responsive, reservar espacio para el tamaño más grande (970x250) */
+  .ad-header-desktop {
+    display: block;
+    width: 100%;
+    max-width: 970px;
+    min-height: 90px; /* Mínimo para 728x90 */
+    max-height: 250px; /* Máximo para 970x250 */
+  }
+
+  .ad-header-mobile {
+    display: none;
+  }
+
+  /* Mobile: mostrar 320x100 fijo, ocultar desktop */
+  @media (max-width: 767px) {
+    .ad-header-desktop {
+      display: none;
+    }
+
+    .ad-header-mobile {
+      display: block;
+      min-width: 320px;
+      min-height: 100px;
+    }
+  }
+</style>

@@ -184,41 +184,76 @@ img {
   margin-bottom: 20px;
 }
 
-.elemento-index {
-  position: relative;
-  float: left;
-  width: 20%;
-  padding: 0 8px 8px 0;
-  min-height: auto;
-}
-
 .elemento-index:hover {
   transform: scale(1.03);
 }
 
 .caja-destacados {
-  position: relative;
-  float: left;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
   padding: 10px 0 0 0;
 }
 
+/* elemento-categorias ahora es un <a> con estructura limpia */
 .elemento-categorias {
   position: relative;
+  display: block;
   float: left;
   width: 33%;
   padding: 0 10px 0 0;
-  height: 250px;
-  min-height: 250px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  text-decoration: none;
   opacity: 0.9;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .elemento-categorias img {
-  position: relative;
-  float: left;
+  display: block;
   width: 100%;
   height: 200px;
   object-fit: cover;
-  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+/* Degradado oscuro en la parte inferior */
+.elemento-categorias::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 10px; /* Compensar el padding derecho */
+  height: 60%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  border-radius: 0 0 8px 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Título posicionado sobre la imagen */
+.elemento-categorias .categoria-titulo {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 10px; /* Compensar el padding derecho */
+  margin: 0;
+  padding: 0 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  z-index: 2;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.2;
 }
 
 .elemento-categorias:hover {
@@ -226,13 +261,64 @@ img {
   opacity: 1;
 }
 
+/* elemento-categorias-b ahora es un <a> con estructura limpia */
 .elemento-categorias-b {
   position: relative;
+  display: block;
   float: left;
   width: 20%;
   padding: 0 10px 0 0;
-  min-height: 210px;
+  box-sizing: border-box;
+  text-decoration: none;
   opacity: 0.9;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.elemento-categorias-b img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Degradado oscuro en la parte inferior */
+.elemento-categorias-b::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 10px; /* Compensar el padding derecho */
+  height: 60%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  border-radius: 0 0 8px 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Título posicionado sobre la imagen */
+.elemento-categorias-b .categoria-titulo {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 10px; /* Compensar el padding derecho */
+  margin: 0;
+  padding: 0 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  z-index: 2;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.2;
 }
 
 .elemento-categorias-b:hover {
@@ -320,12 +406,10 @@ img {
   clear: both;
 }
 
-/* Estilos base para todos los personajes */
+/* Estilos base para personajes (excepto personaje-index y personaje8 que tienen estilos propios) */
 .personaje,
 .personaje6,
-.personaje7,
-.personaje8,
-.personaje-index {
+.personaje7 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -343,15 +427,7 @@ img {
   height: auto;
 }
 
-.personaje-index img {
-  width: 110px;
-  height: auto;
-}
-
-.personaje8 img {
-  width: 125px;
-  height: auto;
-}
+/* personaje8 se elimina de aquí - tiene estilos propios más abajo */
 
 .personaje7 img {
   width: 145px;
@@ -365,8 +441,16 @@ img {
 
 .personaje:hover,
 .personaje6:hover,
-.personaje7:hover,
-.personaje8:hover,
+.personaje7:hover {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+.personaje-index {
+  opacity: 0.9;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
 .personaje-index:hover {
   transform: scale(1.03);
   opacity: 1;
@@ -559,9 +643,8 @@ body::-webkit-scrollbar-track,
    RESPONSIVE
    ============================================ */
 @media (max-width: 1250px) {
-  .elemento-index {
-    width: 25%;
-    min-height: auto;
+  .caja-destacados {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .elemento-index-botones {
@@ -581,9 +664,8 @@ body::-webkit-scrollbar-track,
     width: 50%;
   }
 
-  .elemento-index {
-    width: 33%;
-    min-height: auto;
+  .caja-destacados {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .elemento-index-anuncio {
@@ -597,17 +679,17 @@ body::-webkit-scrollbar-track,
 
   .elemento-categorias-b {
     width: 50%;
-    min-height: 290px;
+  }
+
+  .elemento-categorias-b img {
+    height: auto;
   }
 }
 
 @media (max-width: 900px) {
-  .elemento-index {
-    position: relative;
-    float: left;
-    width: 50%;
-    padding: 0 6px 6px 0;
-    min-height: auto;
+  .caja-destacados {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
   }
 
   .elemento-index-botones {
@@ -622,16 +704,19 @@ body::-webkit-scrollbar-track,
     height: auto;
   }
 
-  .elemento-categorias-b {
-    min-height: 220px;
+  .elemento-categorias-b img {
+    height: auto;
+  }
+
+  .elemento-index .categoria-titulo {
+    font-size: 0.92rem;
+    bottom: 6px;
   }
 
   /* En responsive, las imágenes se adaptan al contenedor del grid */
   .personaje img,
   .personaje6 img,
-  .personaje7 img,
-  .personaje8 img,
-  .personaje-index img {
+  .personaje7 img {
     width: 100%;
     max-width: 110px;
     height: auto;
@@ -639,10 +724,52 @@ body::-webkit-scrollbar-track,
 
   .personaje,
   .personaje6,
-  .personaje7,
-  .personaje8,
-  .personaje-index {
+  .personaje7 {
     font-size: 13px;
+  }
+
+  /* personaje8 en móvil */
+  .personaje8 {
+    width: 100px;
+    max-width: 100px;
+  }
+
+  .personaje8 img {
+    width: 100%;
+    height: auto;
+  }
+
+  .personaje8 .nombre {
+    font-size: 0.8rem;
+    bottom: 4px;
+    padding: 0 3px;
+    line-height: 1.05;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* personaje-index en móvil */
+  .personaje-index {
+    width: 100px;
+    max-width: 100px;
+  }
+
+  .personaje-index img {
+    width: 100%;
+    height: auto;
+  }
+
+  .personaje-index .nombre {
+    font-size: 0.8rem;
+    bottom: 4px;
+    padding: 0 3px;
+    line-height: 1.05;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 
@@ -910,24 +1037,58 @@ body::-webkit-scrollbar-track,
   overflow: hidden;
 }
 
-.elemento-index img {
-  max-width: 100%;
-  height: auto;
+/* elemento-index ahora es un <a> con estructura limpia */
+.elemento-index {
+  position: relative;
+  display: block;
+  overflow: hidden;
   border-radius: 8px;
-}
-
-.categoria-titulo {
-  margin: 5px 0 0 0;
-  font-size: 0.9rem;
-}
-
-.categoria-titulo a {
-  color: #333;
   text-decoration: none;
 }
 
-.categoria-titulo a:hover {
-  color: #0066cc;
+.elemento-index img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Degradado oscuro en la parte inferior */
+.elemento-index::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  border-radius: 0 0 8px 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Título posicionado sobre la imagen */
+.elemento-index .categoria-titulo {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  z-index: 2;
+  text-align: center;
+  /* Soporte para textos de 2 líneas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.2;
 }
 
 /* Alineación de imágenes */
@@ -944,25 +1105,134 @@ body::-webkit-scrollbar-track,
 /* Estilos para personajes como enlaces (son tags <a>) */
 .personaje,
 .personaje6,
-.personaje7,
-.personaje8,
-.personaje-index {
+.personaje7 {
   color: #333;
   text-decoration: none;
 }
 
-
-.elemento-categorias-b {
+/* ============================================
+   PERSONAJE8 CON TEXTO SOBRE IMAGEN
+   ============================================ */
+.personaje8 {
+  position: relative;
   display: block;
-  color: #333;
+  overflow: hidden;
+  border-radius: 8px;
   text-decoration: none;
+  /* Mantener ancho fijo de 125px (original) */
+  width: 125px;
+  max-width: 125px;
+  opacity: 0.9;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.elemento-categorias-b img {
+/* Imagen mantiene el flujo y define la altura */
+.personaje8 img {
+  display: block;
   width: 100%;
   height: auto;
   border-radius: 8px;
-  margin-bottom: 10px;
+}
+
+/* Degradado oscuro en la parte inferior */
+.personaje8::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  border-radius: 0 0 8px 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Nombre posicionado sobre la imagen */
+.personaje8 .nombre {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  padding: 0 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+  line-height: 1.1;
+  text-align: center;
+  z-index: 2;
+  /* Soporte para textos de 2 líneas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.personaje8:hover {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+/* ============================================
+   PERSONAJE-INDEX CON TEXTO SOBRE IMAGEN
+   ============================================ */
+.personaje-index {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+  text-decoration: none;
+  /* Mantener ancho fijo de la imagen (200x356 original) */
+  width: 110px;
+  max-width: 110px;
+}
+
+/* Imagen mantiene el flujo y define la altura */
+.personaje-index img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Degradado oscuro en la parte inferior */
+.personaje-index::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  border-radius: 0 0 8px 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Nombre posicionado sobre la imagen */
+.personaje-index .nombre {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  padding: 0 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+  line-height: 1.1;
+  text-align: center;
+  z-index: 2;
+  /* Soporte para textos de 2 líneas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* ============================================

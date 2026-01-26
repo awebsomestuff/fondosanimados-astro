@@ -1,19 +1,17 @@
 ---
 // AdSenseHeader.astro
-// Banner de cabecera optimizado:
-// - Desktop: Responsive (puede mostrar 970x250, 728x90, etc.)
+// Banner de cabecera optimizado para evitar CLS:
+// - Desktop: Fijo 728x90 (Leaderboard)
 // - Mobile: Fijo 320x100 (Large Mobile Banner)
 ---
 
 <div class="ad-header-container">
-  <!-- Desktop: Responsive (970x250, 728x90, etc.) -->
+  <!-- Desktop: Fijo 728x90 Leaderboard -->
   <div class="ad-header-desktop" id="ad-header-desktop">
     <ins class="adsbygoogle"
-         style="display:block"
+         style="display:inline-block;width:728px;height:90px"
          data-ad-client="ca-pub-9609544329602409"
-         data-ad-slot="2203484639"
-         data-ad-format="horizontal"
-         data-full-width-responsive="false"></ins>
+         data-ad-slot="2203484639"></ins>
   </div>
 
   <!-- Mobile: Fijo 320x100 -->
@@ -25,18 +23,6 @@
   </div>
 </div>
 
-<script is:inline>
-  // Inicializar los anuncios cuando el script de AdSense esté listo
-  window.addEventListener('load', function() {
-    try {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.log('AdSense error:', e);
-    }
-  });
-</script>
-
 <style>
   .ad-header-container {
     width: 100%;
@@ -46,12 +32,13 @@
     background-color: #fff;
   }
 
-  /* Desktop: responsive, reservar espacio para 970x250 */
+  /* Desktop: Fijo 728x90 - reservar espacio exacto para evitar CLS */
   .ad-header-desktop {
-    display: block;
-    width: 100%;
-    max-width: 970px;
-    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 728px;
+    height: 90px;
   }
 
   .ad-header-mobile {
@@ -65,9 +52,11 @@
     }
 
     .ad-header-mobile {
-      display: block;
-      min-width: 320px;
-      min-height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 320px;
+      height: 100px;
     }
   }
 </style>

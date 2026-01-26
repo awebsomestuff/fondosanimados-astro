@@ -27,14 +27,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <!-- DNS Prefetch para recursos externos -->
   <link rel="preconnect" href="https://fondosanimados-astro.pages.dev" crossorigin />
 
-  <!-- Preconnect para Google AdSense (mejora velocidad de carga de ads) -->
+  <!-- Preconnect para Google AdSense (prepara conexión mientras carga la página) -->
   <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
   <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossorigin />
-  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-  <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-
-  <!-- Google AdSense Script -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9609544329602409" crossorigin="anonymous"></script>
 
   <!-- hreflang -->
   <link rel="alternate" hreflang="es" href={canonicalURL} />
@@ -214,6 +209,32 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
       container.appendChild(iframe);
     });
+  </script>
+
+  <!-- AdSense: Carga diferida para mejorar rendimiento -->
+  <script is:inline>
+    // Cargar AdSense después de que la página esté lista
+    function loadAdSense() {
+      var script = document.createElement('script');
+      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9609544329602409';
+      script.async = true;
+      script.crossOrigin = 'anonymous';
+      script.onload = function() {
+        // Inicializar los anuncios cuando el script esté cargado
+        try {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {}
+      };
+      document.head.appendChild(script);
+    }
+
+    // Cargar después de que la página termine de renderizar
+    if (document.readyState === 'complete') {
+      loadAdSense();
+    } else {
+      window.addEventListener('load', loadAdSense);
+    }
   </script>
 </body>
 </html>

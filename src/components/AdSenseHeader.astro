@@ -24,15 +24,19 @@
 </div>
 
 <style>
+  /* Contenedor principal - altura fija para evitar CLS */
   .ad-header-container {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 10px 0;
     background-color: #fff;
+    /* Desktop: reservar altura para 90px + 20px padding */
+    min-height: 110px;
   }
 
-  /* Desktop: Fijo 728x90 - reservar espacio exacto para evitar CLS */
+  /* Desktop: Fijo 728x90 */
   .ad-header-desktop {
     display: flex;
     justify-content: center;
@@ -47,6 +51,11 @@
 
   /* Mobile: mostrar 320x100 fijo, ocultar desktop */
   @media (max-width: 767px) {
+    .ad-header-container {
+      /* Mobile: reservar altura para 100px + 20px padding */
+      min-height: 120px;
+    }
+
     .ad-header-desktop {
       display: none;
     }

@@ -40,16 +40,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link rel="preload" href="/uploads/2023/03/logo-fondo.png" as="image" />
 </head>
 <body>
-  <!-- LCP: Forzar carga eager de la primera imagen de preview -->
-  <script is:inline>
-    (function(){
-      var img = document.querySelector('.wv-preview-image');
-      if (img) {
-        img.removeAttribute('loading');
-        img.setAttribute('fetchpriority', 'high');
-      }
-    })();
-  </script>
   <header class="site-header">
     <div class="inside-header grid-container">
       <div class="site-branding">

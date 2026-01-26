@@ -844,6 +844,12 @@ body::-webkit-scrollbar-track,
   .gallery-item {
     width: calc(50% - 10px);
   }
+
+  /* Botones wv-downloads más pequeños en móvil */
+  .wv-downloads a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.81rem;
+  }
 }
 
 @media (max-width: 1080px) {

@@ -25,14 +25,11 @@
   </div>
 </div>
 
-<script>
-  // Inicializar los anuncios cuando el DOM esté listo
-  document.addEventListener('DOMContentLoaded', function() {
-    if (typeof adsbygoogle !== 'undefined') {
-      // Push para el anuncio visible (desktop o mobile según CSS)
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    }
-  });
+<script type="text/partytown" is:inline>
+  // Inicializar los anuncios - ejecutado por Partytown en Web Worker
+  // Push para desktop y mobile (el CSS oculta el que no corresponde)
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 <style>

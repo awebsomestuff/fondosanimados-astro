@@ -221,9 +221,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       script.crossOrigin = 'anonymous';
       script.onload = function() {
         // Inicializar los anuncios cuando el script esté cargado
+        // Buscar todos los bloques de anuncios y hacer push para cada uno
         try {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-          (adsbygoogle = window.adsbygoogle || []).push({});
+          var ads = document.querySelectorAll('.adsbygoogle');
+          for (var i = 0; i < ads.length; i++) {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          }
         } catch (e) {}
       };
       document.head.appendChild(script);

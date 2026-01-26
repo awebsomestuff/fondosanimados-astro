@@ -14,6 +14,26 @@
   contain: layout style;
 }
 
+/* Anuncio in-content (después del primer wallpaper) */
+.ad-incontent-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  /* Altura fija: 280px contenido + 20px margen visual */
+  height: 300px;
+  min-height: 300px;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.ad-incontent-container .adsbygoogle {
+  display: block;
+  width: 100%;
+  max-height: 280px;
+}
+
 /* Reset básico */
 *, *::before, *::after {
   box-sizing: border-box;

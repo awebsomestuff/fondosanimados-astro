@@ -24,7 +24,7 @@
 </div>
 
 <style>
-  /* Contenedor principal - altura fija para evitar CLS */
+  /* Contenedor principal - altura FIJA para evitar CLS */
   .ad-header-container {
     width: 100%;
     display: flex;
@@ -32,17 +32,29 @@
     align-items: center;
     padding: 10px 0;
     background-color: #fff;
-    /* Desktop: reservar altura para 90px + 20px padding */
-    min-height: 110px;
+    /* Desktop: altura fija 90px + 20px padding = 110px */
+    height: 110px;
+    overflow: hidden; /* Cortar cualquier cosa que exceda */
   }
 
-  /* Desktop: Fijo 728x90 */
+  /* Desktop: Fijo 728x90 - sin posibilidad de expandirse */
   .ad-header-desktop {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 728px;
     height: 90px;
+    max-width: 728px;
+    max-height: 90px;
+    overflow: hidden;
+  }
+
+  /* Limitar el ins de AdSense */
+  .ad-header-desktop .adsbygoogle,
+  .ad-header-mobile .adsbygoogle {
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
   }
 
   .ad-header-mobile {
@@ -52,8 +64,8 @@
   /* Mobile: mostrar 320x100 fijo, ocultar desktop */
   @media (max-width: 767px) {
     .ad-header-container {
-      /* Mobile: reservar altura para 100px + 20px padding */
-      min-height: 120px;
+      /* Mobile: altura fija 100px + 20px padding = 120px */
+      height: 120px;
     }
 
     .ad-header-desktop {
@@ -66,6 +78,9 @@
       align-items: center;
       width: 320px;
       height: 100px;
+      max-width: 320px;
+      max-height: 100px;
+      overflow: hidden;
     }
   }
 </style>

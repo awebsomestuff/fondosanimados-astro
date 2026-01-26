@@ -426,41 +426,67 @@ img {
   clear: both;
 }
 
-/* Estilos base para personajes (excepto personaje-index y personaje8 que tienen estilos propios) */
-.personaje,
-.personaje6,
+/* ============================================
+   PERSONAJE7 CON TEXTO SOBRE IMAGEN
+   ============================================ */
 .personaje7 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  font-size: 15px;
-  opacity: 0.85;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+  text-decoration: none;
+  /* Se adapta al grid, con máximo de 145px */
   width: 100%;
-  max-width: 180px;
+  max-width: 145px;
+  opacity: 0.9;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* Tamaños de imagen específicos para desktop */
-.personaje img {
-  width: 105px;
-  height: auto;
-}
-
-/* personaje8 se elimina de aquí - tiene estilos propios más abajo */
-
+/* Imagen mantiene el flujo y define la altura */
 .personaje7 img {
-  width: 145px;
+  display: block;
+  width: 100%;
   height: auto;
+  border-radius: 8px;
 }
 
-.personaje6 img {
-  width: 170px;
-  height: auto;
+/* Degradado oscuro en la parte inferior */
+.personaje7::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  border-radius: 0 0 8px 8px;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.personaje:hover,
-.personaje6:hover,
+/* Nombre posicionado sobre la imagen */
+.personaje7 .nombre {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  padding: 0 5px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+  line-height: 1.1;
+  text-align: center;
+  z-index: 2;
+  /* Soporte para textos de 2 líneas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .personaje7:hover {
   transform: scale(1.03);
   opacity: 1;
@@ -476,9 +502,6 @@ img {
   opacity: 1;
 }
 
-.personaje6 span {
-  height: 200px;
-}
 
 .video-animado {
   width: 1000px;
@@ -733,19 +756,43 @@ body::-webkit-scrollbar-track,
     bottom: 6px;
   }
 
-  /* En responsive, las imágenes se adaptan al contenedor del grid */
-  .personaje img,
-  .personaje6 img,
-  .personaje7 img {
+  /* personaje7 en móvil */
+  .personaje7 {
     width: 100%;
     max-width: 110px;
-    height: auto;
   }
 
-  .personaje,
-  .personaje6,
-  .personaje7 {
-    font-size: 13px;
+  .personaje7 .nombre {
+    font-size: 0.8rem;
+    bottom: 4px;
+    padding: 0 3px;
+    line-height: 1.05;
+  }
+
+  /* personaje en móvil */
+  .personaje {
+    width: 100%;
+    max-width: 100px;
+  }
+
+  .personaje .nombre {
+    font-size: 0.75rem;
+    bottom: 4px;
+    padding: 0 3px;
+    line-height: 1.05;
+  }
+
+  /* personaje6 en móvil */
+  .personaje6 {
+    width: 100%;
+    max-width: 110px;
+  }
+
+  .personaje6 .nombre {
+    font-size: 0.8rem;
+    bottom: 4px;
+    padding: 0 3px;
+    line-height: 1.05;
   }
 
   /* personaje8 en móvil */
@@ -1122,13 +1169,6 @@ body::-webkit-scrollbar-track,
   display: inline-block;
 }
 
-/* Estilos para personajes como enlaces (son tags <a>) */
-.personaje,
-.personaje6,
-.personaje7 {
-  color: #333;
-  text-decoration: none;
-}
 
 /* ============================================
    PERSONAJE8 CON TEXTO SOBRE IMAGEN
@@ -1192,6 +1232,138 @@ body::-webkit-scrollbar-track,
 }
 
 .personaje8:hover {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+/* ============================================
+   PERSONAJE CON TEXTO SOBRE IMAGEN
+   ============================================ */
+.personaje {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+  text-decoration: none;
+  /* Se adapta al grid, con máximo de 105px */
+  width: 100%;
+  max-width: 105px;
+  opacity: 0.9;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Imagen mantiene el flujo y define la altura */
+.personaje img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Degradado oscuro en la parte inferior */
+.personaje::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  border-radius: 0 0 8px 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Nombre posicionado sobre la imagen */
+.personaje .nombre {
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  padding: 0 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+  line-height: 1.1;
+  text-align: center;
+  z-index: 2;
+  /* Soporte para textos de 2 líneas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.personaje:hover {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+/* ============================================
+   PERSONAJE6 CON TEXTO SOBRE IMAGEN
+   ============================================ */
+.personaje6 {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+  text-decoration: none;
+  /* Se adapta al grid, con máximo de 170px */
+  width: 100%;
+  max-width: 170px;
+  opacity: 0.9;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Imagen mantiene el flujo y define la altura */
+.personaje6 img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Degradado oscuro en la parte inferior */
+.personaje6::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  border-radius: 0 0 8px 8px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Nombre posicionado sobre la imagen */
+.personaje6 .nombre {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  padding: 0 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+  line-height: 1.1;
+  text-align: center;
+  z-index: 2;
+  /* Soporte para textos de 2 líneas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.personaje6:hover {
   transform: scale(1.03);
   opacity: 1;
 }

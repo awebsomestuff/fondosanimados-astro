@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AdSenseAfterIntro from '../../components/AdSenseAfterIntro.astro';
 
 const title = `Fondos de Pantalla de Anime en Movimiento [PC, Android & iOS]`;
 const description = `Descarga +999 fondos de pantalla de Anime para PC (Windows & Mac) y Móvil (Android & iPhone). Animados, En Movimiento & Estáticos [HD & 4K]`;
@@ -9,9 +10,11 @@ const hreflangEn = undefined;
 <BaseLayout title={title} description={description} hreflangEn={hreflangEn}>
   <article class="entry-content">
     <h1>+999 Fondos de Pantalla de Anime en Movimiento [PC, Android & iOS]</h1>
-    <Fragment set:html={`<p style="text-align: center;">Descarga los mejores <strong>Fondos de Pantalla de Anime en movimiento para PC y Móvil </strong>(Android e iOS), incluyendo <strong>+999 fondos animados de anime</strong> repartidos entre más de 50 títulos diferentes. Todos estos fondos de Anime están disponibles en versión estática y animada (MP4), tanto en horizontal (1920x1080) como en vertical (1080x1920). Además, muchos de ellos también están disponibles en Wallpaper Engine.</p>
+    <p style="text-align: center;">Descarga los mejores <strong>Fondos de Pantalla de Anime en movimiento para PC y Móvil </strong>(Android e iOS), incluyendo <strong>+999 fondos animados de anime</strong> repartidos entre más de 50 títulos diferentes. Todos estos fondos de Anime están disponibles en versión estática y animada (MP4), tanto en horizontal (1920x1080) como en vertical (1080x1920). Además, muchos de ellos también están disponibles en Wallpaper Engine.</p>
 
-<h2 style="text-align: center;">Fondos de Pantalla de Anime [Los Más Populares]</h2>
+    <AdSenseAfterIntro />
+
+    <Fragment set:html={`<h2 style="text-align: center;">Fondos de Pantalla de Anime [Los Más Populares]</h2>
 <a class="elemento-categorias" href="/naruto/"><img src="/uploads/2023/02/naruto-fondos_.webp" alt="Fondos de Naruto"width="450" height="253" loading="lazy" srcset="/uploads/2023/02/naruto-fondos_-desktop.webp 356w, /uploads/2023/02/naruto-fondos_.webp 437w" sizes="(max-width: 900px) 437px, 356px" /><span class="categoria-titulo">Naruto</span></a>
 <a class="elemento-categorias" href="/dragon-ball/"><img src="/uploads/2023/02/Fondos-Dragon-Ball_.webp" alt="Vegeta" width="450" height="253" loading="lazy" srcset="/uploads/2023/02/Fondos-Dragon-Ball_-desktop.webp 356w, /uploads/2023/02/Fondos-Dragon-Ball_.webp 437w" sizes="(max-width: 900px) 437px, 356px" /><span class="categoria-titulo">Dragon Ball</span></a>
 <a class="elemento-categorias" href="/kimetsu-no-yaiba/"><img src="/uploads/2023/02/demon-slayer_.webp" alt="Fondos de Kimetsu No Yaiba"width="450" height="253" loading="lazy" srcset="/uploads/2023/02/demon-slayer_-desktop.webp 356w, /uploads/2023/02/demon-slayer_.webp 437w" sizes="(max-width: 900px) 437px, 356px" /><span class="categoria-titulo">Kimetsu no Yaiba</span></a>

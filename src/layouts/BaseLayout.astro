@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import AdSenseHeader from '../components/AdSenseHeader.astro';
 
 interface Props {
   title: string;
@@ -63,9 +62,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </div>
   </header>
   <div class="menu-overlay"></div>
-
-  <!-- Banner AdSense Header (después del menú, antes del contenido) -->
-  <AdSenseHeader />
 
   <main class="site-content">
     <slot />

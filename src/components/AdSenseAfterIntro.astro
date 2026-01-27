@@ -1,0 +1,70 @@
+---
+// AdSenseAfterIntro.astro
+// Banner de AdSense responsive para colocar después del primer párrafo
+// Contenedor fijo de 280px de alto para evitar CLS, anuncio responsive centrado dentro
+// Usa los mismos ad-slots que el antiguo AdSenseHeader
+---
+
+<!-- Contenedor fijo que reserva espacio (evita CLS) -->
+<div class="ad-afterintro-container">
+  <!-- Contenedor interno que centra el anuncio -->
+  <div class="ad-afterintro-inner">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-9609544329602409"
+         data-ad-slot="2203484639"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+</div>
+
+<style>
+  /* Contenedor externo - altura FIJA para evitar CLS */
+  .ad-afterintro-container {
+    width: 100%;
+    height: 300px; /* 280px contenido + 20px márgenes */
+    min-height: 300px;
+    max-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  /* Contenedor interno - permite que AdSense sea responsive pero centrado */
+  .ad-afterintro-inner {
+    width: 100%;
+    max-width: 100%;
+    height: 280px;
+    max-height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /* El anuncio de AdSense - responsive pero limitado al contenedor */
+  .ad-afterintro-inner .adsbygoogle {
+    display: block;
+    width: 100%;
+    max-height: 280px;
+  }
+
+  /* Mobile: mismas dimensiones (280px de alto) */
+  @media (max-width: 767px) {
+    .ad-afterintro-container {
+      height: 300px;
+      min-height: 300px;
+      max-height: 300px;
+      margin: 15px 0;
+    }
+
+    .ad-afterintro-inner {
+      height: 280px;
+      max-height: 280px;
+    }
+  }
+</style>

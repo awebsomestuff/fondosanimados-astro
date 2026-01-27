@@ -34,6 +34,44 @@
   max-height: 280px;
 }
 
+/* Anuncio after-intro (después del primer párrafo) - NUEVO */
+.ad-afterintro-container {
+  width: 100%;
+  height: 300px; /* 280px contenido + 20px márgenes visuales */
+  min-height: 300px;
+  max-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.ad-afterintro-inner {
+  width: 100%;
+  max-width: 100%;
+  height: 280px;
+  max-height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ad-afterintro-inner .adsbygoogle {
+  display: block;
+  width: 100%;
+  max-height: 280px;
+}
+
+@media (max-width: 767px) {
+  .ad-afterintro-container {
+    margin: 15px 0;
+  }
+}
+
 /* Reset básico */
 *, *::before, *::after {
   box-sizing: border-box;

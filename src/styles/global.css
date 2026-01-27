@@ -72,6 +72,44 @@
   }
 }
 
+/* Anuncio in-content 2 (tercer banner - después de galería/segundo wallpaper) */
+.ad-incontent2-container {
+  width: 100%;
+  height: 300px;
+  min-height: 300px;
+  max-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.ad-incontent2-inner {
+  width: 100%;
+  max-width: 100%;
+  height: 280px;
+  max-height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ad-incontent2-inner .adsbygoogle {
+  display: block;
+  width: 100%;
+  max-height: 280px;
+}
+
+@media (max-width: 767px) {
+  .ad-incontent2-container {
+    margin: 15px 0;
+  }
+}
+
 /* Reset básico */
 *, *::before, *::after {
   box-sizing: border-box;
